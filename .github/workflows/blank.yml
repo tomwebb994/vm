@@ -15,7 +15,7 @@ jobs:
 
       - name: Run PowerShell script as admin
         run: |
-          Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File "vm.ps1"' -Verb RunAs
+          Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File "./vm.ps1"' -Verb RunAs
      
       - name: Run batch file
         run: |
