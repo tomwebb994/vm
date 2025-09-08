@@ -1,4 +1,5 @@
 @echo off
-echo Alive 👾...
-:recheck
-tasklist | find /i "provisioner.exe" >Nul && (ping 127.0.0.1 >Nul & goto recheck)  || echo "Dead 💀..."
+:loop
+echo This is an infinite loop.
+timeout /t 1 > nul  # Wait for 1 second
+goto loop
