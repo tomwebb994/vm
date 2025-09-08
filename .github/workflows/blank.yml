@@ -19,4 +19,4 @@ jobs:
      
       - name: Run batch file
         run: |
-          loop.bat
+          ./loop.bat
