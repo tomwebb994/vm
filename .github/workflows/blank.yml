@@ -1,0 +1,22 @@
+name: Run PowerShell Script as Admin
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run PowerShell script as admin
+        run: |
+          Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File "vm.ps1"' -Verb RunAs
+     
+      - name: Run batch file
+        run: |
+          loop.bat
