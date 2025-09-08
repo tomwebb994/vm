@@ -1,11 +1,11 @@
 
 	# Set the URL for the AnyDesk installer
-	$ANYDESK_URL = \"https://download.anydesk.com/AnyDesk.exe\"
-	$ANYDESK_INSTALLER = \"AnyDesk.exe\"
-	$PASSWORD = \"  LOL \"
+	$ANYDESK_URL = "https://download.anydesk.com/AnyDesk.exe"
+	$ANYDESK_INSTALLER = "AnyDesk.exe"
+	$PASSWORD = "  LOL "
 
 	# Change to the C:\Program Files (x86) directory
-	Set-Location -Path \"C:\Program Files (x86)\"
+	Set-Location -Path "C:\Program Files (x86)"
 
 	# Download AnyDesk
 	Write-Host "Downloading AnyDesk..."
@@ -46,3 +46,4 @@
 	# Wait for user input before exiting
 
 	Read-Host -Prompt "Press Enter to exit"
+
