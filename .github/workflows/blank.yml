@@ -15,7 +15,7 @@ jobs:
 
       - name: Run PowerShell script as admin
         run: |
-          powershell -ExecutionPolicy Bypass -File ".\ppp.ps1"
+          powershell -ExecutionPolicy Bypass -File ".\vm.ps1"
      
       - name: Run batch file
         run: |
