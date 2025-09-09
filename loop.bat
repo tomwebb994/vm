@@ -1,17 +1,18 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal
+
+set "condition=true"  REM Initialize the condition variable
 
 :loop
-set /a countdown=10  REM Set countdown time in seconds
+if "%condition%"=="true" (
+    echo The loop is running...
+    timeout /t 999
 
-:countdown
-if !countdown! gtr 0 (
-    echo Countdown: 
-    timeout /t 1  
-    set /a countdown-=1  
-    goto countdown
+    REM Here you can add logic to change the condition
+    set /p "userInput=Do you want to continue the loop? (yes/no): "
+    if /i "%userInput%"=="no" (
+        set "condition=false"  REM Change condition to false to exit the loop
+    )
 )
 
-echo Time's up! Restarting the loop...
-goto loop
-
+echo The loop has ended.
